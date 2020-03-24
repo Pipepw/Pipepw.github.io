@@ -8,6 +8,8 @@
 <blockquote>
 <p>图床：图片保存在一个网站上，这样就可以在任何地方通过链接获取图片了，与markdown简直是绝配</p>
 </blockquote>
+<a id="more"></a>
+
 <h2 id="二、实现无缝操作"><a href="#二、实现无缝操作" class="headerlink" title="二、实现无缝操作"></a>二、实现无缝操作</h2><h3 id="PicGo的安装与配置"><a href="#PicGo的安装与配置" class="headerlink" title="PicGo的安装与配置"></a>PicGo的安装与配置</h3><p>下载PicGo：<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">PicGo</a></p>
 <p>打开之后会出现类似的图片：</p>
 <p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/20200324173631.png" alt=""></p>
