@@ -33,6 +33,13 @@
 <p>设置使用PicGo进行上传，最后验证一下是否能够上传</p>
 <p>这样，我们就可以在插入图片的时候选择上传到图床了，如果希望直接上传，那么就改变上面插入图片的选项</p>
 ]]></content>
+      <categories>
+        <category>技巧</category>
+      </categories>
+      <tags>
+        <tag>配置环境</tag>
+        <tag>博客</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hello World</title>
