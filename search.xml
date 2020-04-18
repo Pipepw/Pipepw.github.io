@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>如何获取MIPS汇编对应的机器码</title>
+    <url>/2020/04/18/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96MIPS%E6%B1%87%E7%BC%96%E5%AF%B9%E5%BA%94%E7%9A%84%E6%9C%BA%E5%99%A8%E7%A0%81/</url>
+    <content><![CDATA[<p>在看《自己动手写CPU》的时候，里面需要将MIPS转换成机器码作为输入的指令，不过书上的工具以及一些步骤在实际中是不能用的，因此在这里将“从MIPS汇编转换成机器码”的完整过程下来</p>
+<a id="more"></a>
+
+<h1 id="安装Linux虚拟机"><a href="#安装Linux虚拟机" class="headerlink" title="安装Linux虚拟机"></a>安装Linux虚拟机</h1><p>因为汇编工具需要在Linux的环境下运行，所以需要安装Linux虚拟机，我用的软件是VMware，Linux系统是Ubuntu 18.04，具体的安装过程网上有很多教程，这里就不再详细的叙述了</p>
+<h1 id="安装GNU工具链"><a href="#安装GNU工具链" class="headerlink" title="安装GNU工具链"></a>安装GNU工具链</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>百度云下载链接：<a href="https://pan.baidu.com/s/13RMZTfJNdQwe6hTz2S8Ndw" target="_blank" rel="noopener">https://pan.baidu.com/s/13RMZTfJNdQwe6hTz2S8Ndw</a><br>提取码：9z9w</p>
+<h2 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h2><p>下载完成解压之后，在根目录使用vi .bashrc修改.bashrc的内容，在最后一行添加 export PATH=“$PATH:[工具链解压路径]/bin”，如下图所示</p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200418090237074.png" alt="image-20200418090237074"></p>
+<p>添加完成之后重启系统，重启完成后打开终端输入mips-linux-gnu-，然后按两次tab键就会列出刚刚安装的所有编译工具</p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200418090612762.png" alt="image-20200418090612762"></p>
+<p>这样，安装就算完成了，如果没有出现编译工具，那么应该是环境变量没有添加成功，请自行在网上搜索如何添加环境变量</p>
+<h2 id="我们会用到的GNU汇编工具"><a href="#我们会用到的GNU汇编工具" class="headerlink" title="我们会用到的GNU汇编工具"></a>我们会用到的GNU汇编工具</h2><p>（前面都有mips-linux-gnu-前缀）</p>
+<p>as: GNU汇编器，用来将汇编程序编译为目标文件</p>
+<p>ld: GNU链接器，将目标文件通过ld链接、重定位数据生成可执行文件</p>
+<p>objdump: 用于列出关于二进制文件的各种信息</p>
+<h1 id="使用GNU工具链进行编译"><a href="#使用GNU工具链进行编译" class="headerlink" title="使用GNU工具链进行编译"></a>使用GNU工具链进行编译</h1><h2 id="新建一个汇编程序文件"><a href="#新建一个汇编程序文件" class="headerlink" title="新建一个汇编程序文件"></a>新建一个汇编程序文件</h2><p>文件名为inst_rom.S(因为我是用来生成指令的，你可以替换为相应的文件)，文件内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.org 0x0		#程序从地址0x0开始</span><br><span class="line">.global _start	#定义一个全局符号 _start</span><br><span class="line">.set noat		#允许使用寄存器 $1</span><br><span class="line">_start:</span><br><span class="line">    ori $1,$0,0xf</span><br><span class="line">    mtc0 $1,$11,0x0</span><br><span class="line"></span><br><span class="line">    lui $1,0x1000</span><br><span class="line">    ori $1,$1,0x401</span><br><span class="line">    mtc0 $1,$12,0x0</span><br><span class="line">    mfc0 $2,$12,0x0</span><br><span class="line"></span><br><span class="line">_loop:</span><br><span class="line">    j _loop</span><br><span class="line">    sync</span><br></pre></td></tr></table></figure>
+
+<p>一个简单的mips汇编程序</p>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mips-linux-gnu-as -mips32 inst_rom.S -o inst_rom.o</span><br></pre></td></tr></table></figure>
+
+<p>使用 as 来进行编译，“-mips32” 选项表示按照MIPS32 指令集架构进行编译，”-o” 选项用于指令生成的目标文件</p>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>使用 ld 来进行链接，在 ld 的参数中需要声明一个链接描述脚本，链接描述脚本用于描述输入文件各个Section如何映射到输出文件的各个Section中，并控制输出文件中Section和符号的内存布局</p>
+<h2 id="新建一个链接描述脚本文件"><a href="#新建一个链接描述脚本文件" class="headerlink" title="新建一个链接描述脚本文件"></a>新建一个链接描述脚本文件</h2><p>文件名为 ram.ld，文件内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">MEMORY</span><br><span class="line">	&#123;</span><br><span class="line">	ram(wrx)	:ORIGIN &#x3D; 0x00000000, LENGTH &#x3D; 0x00001000</span><br><span class="line">&#125;</span><br><span class="line">SECTIONS&#123;</span><br><span class="line">	.text :</span><br><span class="line">	&#123;</span><br><span class="line">		*(.test)</span><br><span class="line">	&#125; &gt; ram</span><br><span class="line"></span><br><span class="line">	.data :</span><br><span class="line">	&#123;</span><br><span class="line">		*(.data)</span><br><span class="line">	&#125; &gt; ram</span><br><span class="line"></span><br><span class="line">	.bss :</span><br><span class="line">	&#123;</span><br><span class="line">		*(.bss)</span><br><span class="line">	&#125; &gt; ram</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ENTRY (_start)</span><br></pre></td></tr></table></figure>
+
+<p>其中定义了一个存储块——ram，并且权限为wrx，wrx在Linux中表示可读、可写以及可运行（我个人的理解，并且没有这个就不能使用），其起始地址为0x0，长度为0x1000，然后只是编译器输出文件包含三个Section，分别是 .text、.data、.bss，这三个Section从ram的起始地址开始依次存放，并且与输入文件中的这三个Section意义对应，最后的ENTRY指定程序的入口地址，也就是前面汇编程序中定义的那个全局符号 _start</p>
+<h3 id="链接-1"><a href="#链接-1" class="headerlink" title="链接"></a>链接</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mips-linux-gnu-ld -T ram.ld inst_rom.o -o inst_rom.om</span><br></pre></td></tr></table></figure>
+
+<h1 id="得到对应的机器码"><a href="#得到对应的机器码" class="headerlink" title="得到对应的机器码"></a>得到对应的机器码</h1><h2 id="获取反编译文件"><a href="#获取反编译文件" class="headerlink" title="获取反编译文件"></a>获取反编译文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mips-linux-gnu-objdump inst_rom.om inst_rom.asm</span><br></pre></td></tr></table></figure>
+
+<p>书上是用的 objcopy得到 二进制文件，然后用他的那个工具从中提取出机器码的内容，因为我是看的电子书，没有光盘，在网上也没找到那个小程序，所以只能改为使用 objdump 获取反编译文件</p>
+<h2 id="利用小程序提取机器码"><a href="#利用小程序提取机器码" class="headerlink" title="利用小程序提取机器码"></a>利用小程序提取机器码</h2><p>小程序的获取：百度云链接：<a href="https://pan.baidu.com/s/1uFx2Oae7EMfTz_M0a9hMRA" target="_blank" rel="noopener">https://pan.baidu.com/s/1uFx2Oae7EMfTz_M0a9hMRA</a><br>提取码：2fh3 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">.myfun.exe inst_rom.asm inst_rom.data</span><br></pre></td></tr></table></figure>
+
+<p>最后生成的inst_rom.data中就是我们需要的机器码文件了</p>
+<h1 id="通过Makefile来简化操作"><a href="#通过Makefile来简化操作" class="headerlink" title="通过Makefile来简化操作"></a>通过Makefile来简化操作</h1><p>从一个汇编程序打机器码文件，需要四步操作：编译、链接、反编译、提取，有些繁琐，如果对输入文件以及输出文件的名称没有要求的话，可以使用Makefile来简化操作，如果有要求，也可以通过修改Makefile来完成操作，相对来说也很简便</p>
+<h2 id="编写Makefile文件"><a href="#编写Makefile文件" class="headerlink" title="编写Makefile文件"></a>编写Makefile文件</h2><p>新建一个文件，名为Makefile，文件内容如下</p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ifndef</span> CROSS_COMPILE                              </span><br><span class="line">CROSS_COMPILE = mips-linux-gnu-</span><br><span class="line"><span class="keyword">endif</span></span><br><span class="line">CC = <span class="variable">$(CROSS_COMPILE)</span>as</span><br><span class="line">LD = <span class="variable">$(CROSS_COMPILE)</span>ld</span><br><span class="line">OBJDUMP = <span class="variable">$(CROSS_COMPILE)</span>objdump</span><br><span class="line">OBJECTS = inst_rom.o</span><br><span class="line"><span class="keyword">export</span> CROSS_COMPILE</span><br><span class="line"><span class="comment"># 前面的应该都好理解，就是一些别名</span></span><br><span class="line"><span class="section">all:inst_rom.data			# 最后要获取的文件</span></span><br><span class="line"><span class="section">inst_rom.o: inst_rom.S		# <span class="variable">$&lt;</span>表示输入文件， <span class="variable">$@</span>表示输出文件</span></span><br><span class="line">    <span class="variable">$(CC)</span> -mips32 <span class="variable">$&lt;</span> -o <span class="variable">$@</span>	<span class="comment"># $&lt; 对应inst_rom.S，$@对应inst_rom.o</span></span><br><span class="line"><span class="section">inst_rom.om: ram.ld <span class="variable">$(OBJECTS)</span></span></span><br><span class="line">    <span class="variable">$(LD)</span> -T ram.ld <span class="variable">$(OBJECTS)</span> -o <span class="variable">$@</span></span><br><span class="line"><span class="section">inst_rom.asm: inst_rom.om</span></span><br><span class="line">    <span class="variable">$(OBJDUMP)</span> -D <span class="variable">$&lt;</span> &gt; <span class="variable">$@</span></span><br><span class="line"><span class="section">inst_rom.data: inst_rom.asm</span></span><br><span class="line">    ./myfun.exe <span class="variable">$&lt;</span> <span class="variable">$@</span></span><br><span class="line"></span><br><span class="line"><span class="section">build:</span></span><br><span class="line">    touch inst_rom.data</span><br><span class="line"><span class="section">clean:	# make clean时清除以下文件</span></span><br><span class="line">    rm -f *.o *.om *.asm *.data</span><br></pre></td></tr></table></figure>
+
+<p>在makefile中最后要获取的是inst_rom.data文件，而获取inst_rom.data需要inst_rom.asm文件，所以执行 ./myfun 那一步操作，而inst_rom.asm选哟inst_rom.om ，以此类推依次执行makefile中的内容</p>
+<p>以后在命令行使用make就可以完成所有的操作了</p>
+]]></content>
+      <categories>
+        <category>技巧</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Typora + PicGo + Github 无缝完成写博客操作</title>
     <url>/2020/03/24/Typora%20+%20PicGo%20+%20Github%20%E6%97%A0%E7%BC%9D%E5%AE%8C%E6%88%90%E5%86%99%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<h1 id="Typora-PicGo-Github-无缝完成写博客操作"><a href="#Typora-PicGo-Github-无缝完成写博客操作" class="headerlink" title="Typora + PicGo + Github 无缝完成写博客操作"></a>Typora + PicGo + Github 无缝完成写博客操作</h1><h2 id="一、什么是无缝操作"><a href="#一、什么是无缝操作" class="headerlink" title="一、什么是无缝操作"></a>一、什么是无缝操作</h2><p>无缝操作就是在 Typora 本地就完成写博客的操作，不需要去其他地方上传图片到图床再复制连接，在 Typora 内就能完成上传图片到图床的操作</p>
@@ -40,8 +93,8 @@
         <category>技巧</category>
       </categories>
       <tags>
-        <tag>配置环境</tag>
         <tag>博客</tag>
+        <tag>配置环境</tag>
       </tags>
   </entry>
   <entry>
