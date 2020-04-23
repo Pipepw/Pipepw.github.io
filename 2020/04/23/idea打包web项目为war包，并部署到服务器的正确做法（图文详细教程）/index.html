@@ -21,29 +21,38 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Typora + PicGo + Github 无缝完成写博客操作一、什么是无缝操作无缝操作就是在 Typora 本地就完成写博客的操作，不需要去其他地方上传图片到图床再复制连接，在 Typora 内就能完成上传图片到图床的操作 相比其他网页编辑博客，Typora的访问速度更快，并且可以随时随地写博客，缺点就是图片只能保存在本地，不过在 Typora 更新之后，就可以使用 PicGo 直接上传图片">
+  <meta name="description" content="在网上找了很久，发现很多方法是错误的，有的连web.xml文件以及classes文件夹、lib文件夹都没生成。同时在部署过程中还出现本地调试正常，但是放到服务器上就不能访问的问题。因此有很多注意事项，写下这篇博客以作记录。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Typora + PicGo + Github 无缝完成写博客操作">
-<meta property="og:url" content="http://yoursite.com/2020/03/24/Typora%20+%20PicGo%20+%20Github%20%E6%97%A0%E7%BC%9D%E5%AE%8C%E6%88%90%E5%86%99%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:title" content="idea打包web项目为war包，并部署到服务器的正确做法（图文详细教程）">
+<meta property="og:url" content="http://yoursite.com/2020/04/23/idea%E6%89%93%E5%8C%85web%E9%A1%B9%E7%9B%AE%E4%B8%BAwar%E5%8C%85%EF%BC%8C%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%81%9A%E6%B3%95%EF%BC%88%E5%9B%BE%E6%96%87%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%EF%BC%89/index.html">
 <meta property="og:site_name" content="惊蛰">
-<meta property="og:description" content="Typora + PicGo + Github 无缝完成写博客操作一、什么是无缝操作无缝操作就是在 Typora 本地就完成写博客的操作，不需要去其他地方上传图片到图床再复制连接，在 Typora 内就能完成上传图片到图床的操作 相比其他网页编辑博客，Typora的访问速度更快，并且可以随时随地写博客，缺点就是图片只能保存在本地，不过在 Typora 更新之后，就可以使用 PicGo 直接上传图片">
+<meta property="og:description" content="在网上找了很久，发现很多方法是错误的，有的连web.xml文件以及classes文件夹、lib文件夹都没生成。同时在部署过程中还出现本地调试正常，但是放到服务器上就不能访问的问题。因此有很多注意事项，写下这篇博客以作记录。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/20200324173631.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200324174707247.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200324175141172.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200324175704641.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200324175845451.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200324175948813.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200324194721349.png">
-<meta property="article:published_time" content="2020-03-24T11:50:36.792Z">
-<meta property="article:modified_time" content="2020-04-18T02:47:47.403Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422233609802.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422234122921.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422234411508.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423000455991.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423000559378.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423000806803.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422235131022.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422235245799.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422235921961.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423001109448.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423001247547.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423085023916.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423085808759.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423090557438.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423090654842.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423091034331.png">
+<meta property="article:published_time" content="2020-04-23T01:11:38.033Z">
+<meta property="article:modified_time" content="2020-04-23T01:14:34.213Z">
 <meta property="article:author" content="Pipepw">
-<meta property="article:tag" content="配置环境">
 <meta property="article:tag" content="博客">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/20200324173631.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422233609802.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/03/24/Typora%20+%20PicGo%20+%20Github%20%E6%97%A0%E7%BC%9D%E5%AE%8C%E6%88%90%E5%86%99%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/">
+<link rel="canonical" href="http://yoursite.com/2020/04/23/idea%E6%89%93%E5%8C%85web%E9%A1%B9%E7%9B%AE%E4%B8%BAwar%E5%8C%85%EF%BC%8C%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%81%9A%E6%B3%95%EF%BC%88%E5%9B%BE%E6%96%87%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%EF%BC%89/">
 
 
 <script id="page-configurations">
@@ -56,7 +65,7 @@
   };
 </script>
 
-  <title>Typora + PicGo + Github 无缝完成写博客操作 | 惊蛰</title>
+  <title>idea打包web项目为war包，并部署到服务器的正确做法（图文详细教程） | 惊蛰</title>
   
 
 
@@ -200,7 +209,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/24/Typora%20+%20PicGo%20+%20Github%20%E6%97%A0%E7%BC%9D%E5%AE%8C%E6%88%90%E5%86%99%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/23/idea%E6%89%93%E5%8C%85web%E9%A1%B9%E7%9B%AE%E4%B8%BAwar%E5%8C%85%EF%BC%8C%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%81%9A%E6%B3%95%EF%BC%88%E5%9B%BE%E6%96%87%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.png">
@@ -213,7 +222,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Typora + PicGo + Github 无缝完成写博客操作
+          idea打包web项目为war包，并部署到服务器的正确做法（图文详细教程）
         </h1>
 
         <div class="post-meta">
@@ -222,16 +231,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-03-24 19:50:36" itemprop="dateCreated datePublished" datetime="2020-03-24T19:50:36+08:00">2020-03-24</time>
+              <time title="Created: 2020-04-23 09:11:38 / Modified: 09:14:34" itemprop="dateCreated datePublished" datetime="2020-04-23T09:11:38+08:00">2020-04-23</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-18 10:47:47" itemprop="dateModified" datetime="2020-04-18T10:47:47+08:00">2020-04-18</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -253,38 +256,45 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Typora-PicGo-Github-无缝完成写博客操作"><a href="#Typora-PicGo-Github-无缝完成写博客操作" class="headerlink" title="Typora + PicGo + Github 无缝完成写博客操作"></a>Typora + PicGo + Github 无缝完成写博客操作</h1><h2 id="一、什么是无缝操作"><a href="#一、什么是无缝操作" class="headerlink" title="一、什么是无缝操作"></a>一、什么是无缝操作</h2><p>无缝操作就是在 Typora 本地就完成写博客的操作，不需要去其他地方上传图片到图床再复制连接，在 Typora 内就能完成上传图片到图床的操作</p>
-<p>相比其他网页编辑博客，Typora的访问速度更快，并且可以随时随地写博客，缺点就是图片只能保存在本地，不过在 Typora 更新之后，就可以使用 PicGo 直接上传图片到图床了</p>
-<blockquote>
-<p>图床：图片保存在一个网站上，这样就可以在任何地方通过链接获取图片了，与markdown简直是绝配</p>
-</blockquote>
+        <p>在网上找了很久，发现很多方法是错误的，有的连web.xml文件以及classes文件夹、lib文件夹都没生成。同时在部署过程中还出现本地调试正常，但是放到服务器上就不能访问的问题。因此有很多注意事项，写下这篇博客以作记录。</p>
 <a id="more"></a>
 
-<h2 id="二、实现无缝操作"><a href="#二、实现无缝操作" class="headerlink" title="二、实现无缝操作"></a>二、实现无缝操作</h2><h3 id="PicGo的安装与配置"><a href="#PicGo的安装与配置" class="headerlink" title="PicGo的安装与配置"></a>PicGo的安装与配置</h3><p>下载PicGo：<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">PicGo</a></p>
-<p>打开之后会出现类似的图片：</p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/20200324173631.png" alt=""></p>
-<p>在设置中将端口设置为36677</p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200324174707247.png" alt="image-20200324174707247"></p>
-<p>这样，PicGo的设置就告一段落了</p>
-<h3 id="将-Github-作为免费图床"><a href="#将-Github-作为免费图床" class="headerlink" title="将 Github 作为免费图床"></a>将 Github 作为免费图床</h3><p>首先创建一个新的仓库</p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200324175141172.png" alt="image-20200324175141172"></p>
-<p>然后在 Github 的设置中创建一个tocken，这个tocken只出现一次，注意保存</p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200324175704641.png" alt="image-20200324175704641"></p>
-<p>下面就是tocken</p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200324175845451.png" alt="image-20200324175845451"></p>
-<p>然后回到 PicGo中，设置 Github 图床</p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200324175948813.png" alt="image-20200324175948813"></p>
-<blockquote>
-<p>仓库名就是刚才创建的那个图床仓库，按照你自己创建的仓库名填</p>
-<p>分支名就是master</p>
-<p>Tocken：刚才生成的tocken</p>
-<p>指定存储路径就是在仓库中图片存放的位置</p>
-<p>自定义域名就是<a href="https://raw.githubusercontent.com/Pipepw/FigureBed/master，把中间的Pipepw/FigureBed换成你自己的仓库名就行，后面的master不要少了，这个自定义域名就是后面上传图片之后，对图片进行访问所需要的，上传失败则检查一下" target="_blank" rel="noopener">https://raw.githubusercontent.com/Pipepw/FigureBed/master，把中间的Pipepw/FigureBed换成你自己的仓库名就行，后面的master不要少了，这个自定义域名就是后面上传图片之后，对图片进行访问所需要的，上传失败则检查一下</a></p>
-</blockquote>
-<h3 id="Typora的安装与配置"><a href="#Typora的安装与配置" class="headerlink" title="Typora的安装与配置"></a>Typora的安装与配置</h3><p>下载安装 Typora：<a href="https://typora.io/" target="_blank" rel="noopener">Typora</a></p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200324194721349.png" alt="image-20200324194721349"></p>
-<p>设置使用PicGo进行上传，最后验证一下是否能够上传</p>
-<p>这样，我们就可以在插入图片的时候选择上传到图床了，如果希望直接上传，那么就改变上面插入图片的选项</p>
+<h1 id="Idea打包web项目为war包（详细图文步骤）"><a href="#Idea打包web项目为war包（详细图文步骤）" class="headerlink" title="Idea打包web项目为war包（详细图文步骤）"></a>Idea打包web项目为war包（详细图文步骤）</h1><ol>
+<li>打开Projec Structure</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422233609802.png" alt="image-20200422233609802"></p>
+<ol start="2">
+<li><p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422234122921.png" alt="image-20200422234122921"></p>
+</li>
+<li><p>创建WEB-INF文件夹以及在这个文件夹下的子目录classes</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422234411508.png" alt="image-20200422234411508"></p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423000455991.png" alt="image-20200423000455991"></p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423000559378.png" alt="image-20200423000559378"></p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423000806803.png" alt="image-20200423000806803"></p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422235131022.png" alt="image-20200422235131022"></p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422235245799.png" alt="image-20200422235245799"></p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422235921961.png" alt="image-20200422235921961"></p>
+<ol start="4">
+<li><p>开始生成war包</p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423001109448.png" alt="image-20200423001109448"></p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423001247547.png" alt="image-20200423001247547"></p>
+</li>
+</ol>
+<p>   <img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423085023916.png" alt="image-20200423085023916"></p>
+<p>   创建完成之后就可以在out目录下看到war包了</p>
+<h1 id="将war部署到服务器上"><a href="#将war部署到服务器上" class="headerlink" title="将war部署到服务器上"></a>将war部署到服务器上</h1><h2 id="将war包上传到服务器tomcat的webapps目录下"><a href="#将war包上传到服务器tomcat的webapps目录下" class="headerlink" title="将war包上传到服务器tomcat的webapps目录下"></a>将war包上传到服务器tomcat的webapps目录下</h2><p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423085808759.png" alt="image-20200423085808759"></p>
+<p>因为我是放到了另一个端口，所以我这里是放到了webapps1目录下，如果你只有这一个web程序，那么直接放到webapps下就行了，如果你有多个web程序要放到同一个tomcat服务器中，那么可以参考这篇文章：<a href="https://zhuanlan.zhihu.com/p/110901299" target="_blank" rel="noopener">一个 tomcat 下如何部署多个项目？附详细步骤</a></p>
+<h2 id="重启tomcat"><a href="#重启tomcat" class="headerlink" title="重启tomcat"></a>重启tomcat</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在tomcat的 bin 目录下操作</span></span><br><span class="line">./shutdown.sh		<span class="comment"># 关闭tomcat</span></span><br><span class="line">ps -ef | grep java	<span class="comment"># 查看是否关闭成功	</span></span><br><span class="line">./start.sh			<span class="comment"># 开启tomcat</span></span><br></pre></td></tr></table></figure>
+
+<p>tomcat关闭的时候</p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423090557438.png" alt="image-20200423090557438"></p>
+<p>tomcat开启的时候</p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423090654842.png" alt="image-20200423090654842"></p>
+<p>这样就可以通过ip:8080/项目名来进行访问了</p>
+<p>ps：如果ip:8080/项目名可以访问成功，但是访问具体的服务失败时，可能是因为你本地的jdk版本和服务器的jdk版本不同，是你的jdk版本高于服务器jdk版本，那么就不用重新安装jdk，因为jdk是向下兼容的，只需要在idea中设置编译版本就行了</p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423091034331.png" alt="image-20200423091034331"></p>
 
     </div>
 
@@ -294,8 +304,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83/" rel="tag"># 配置环境</a>
               <a href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag"># 博客</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
           </div>
 
         
@@ -304,13 +314,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/23/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
+    <a href="/2020/04/18/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96MIPS%E6%B1%87%E7%BC%96%E5%AF%B9%E5%BA%94%E7%9A%84%E6%9C%BA%E5%99%A8%E7%A0%81/" rel="prev" title="如何获取MIPS汇编对应的机器码">
+      <i class="fa fa-chevron-left"></i> 如何获取MIPS汇编对应的机器码
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/04/18/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96MIPS%E6%B1%87%E7%BC%96%E5%AF%B9%E5%BA%94%E7%9A%84%E6%9C%BA%E5%99%A8%E7%A0%81/" rel="next" title="如何获取MIPS汇编对应的机器码">
-      如何获取MIPS汇编对应的机器码 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -371,7 +378,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Typora-PicGo-Github-无缝完成写博客操作"><span class="nav-number">1.</span> <span class="nav-text">Typora + PicGo + Github 无缝完成写博客操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、什么是无缝操作"><span class="nav-number">1.1.</span> <span class="nav-text">一、什么是无缝操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、实现无缝操作"><span class="nav-number">1.2.</span> <span class="nav-text">二、实现无缝操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PicGo的安装与配置"><span class="nav-number">1.2.1.</span> <span class="nav-text">PicGo的安装与配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将-Github-作为免费图床"><span class="nav-number">1.2.2.</span> <span class="nav-text">将 Github 作为免费图床</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Typora的安装与配置"><span class="nav-number">1.2.3.</span> <span class="nav-text">Typora的安装与配置</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Idea打包web项目为war包（详细图文步骤）"><span class="nav-number">1.</span> <span class="nav-text">Idea打包web项目为war包（详细图文步骤）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将war部署到服务器上"><span class="nav-number">2.</span> <span class="nav-text">将war部署到服务器上</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#将war包上传到服务器tomcat的webapps目录下"><span class="nav-number">2.1.</span> <span class="nav-text">将war包上传到服务器tomcat的webapps目录下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重启tomcat"><span class="nav-number">2.2.</span> <span class="nav-text">重启tomcat</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -510,7 +517,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'Pipepw.github.io',
       owner       : '',
       admin       : ['pipepw'],
-      id          : 'c7b41fa67f0461fe8d41f83e1e57c1f2',
+      id          : '7d1b5b5d8d87a952b15dc96d9399de15',
         language: '',
       distractionFreeMode: true
     });
