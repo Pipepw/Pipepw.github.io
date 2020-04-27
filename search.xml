@@ -10,19 +10,10 @@
 <li>打开Projec Structure</li>
 </ol>
 <p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422233609802.png" alt="image-20200422233609802"></p>
-<ol start="2">
-<li><p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422234122921.png" alt="image-20200422234122921"></p>
-</li>
-<li><p>创建WEB-INF文件夹以及在这个文件夹下的子目录classes</p>
-</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422234411508.png" alt="image-20200422234411508"></p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423000455991.png" alt="image-20200423000455991"></p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423000559378.png" alt="image-20200423000559378"></p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423000806803.png" alt="image-20200423000806803"></p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422235131022.png" alt="image-20200422235131022"></p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422235245799.png" alt="image-20200422235245799"></p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422235921961.png" alt="image-20200422235921961"></p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200427105209116.png" alt="image-20200427105209116"></p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200427103536336.png" alt="image-20200427103536336"></p>
+<p>在war中导入的包最后和本地的包是一样的，所以如果出现包依赖的冲突，那么就清理一下本地的包，比如我之前就是在本地添加了重复的tomcat依赖包，导致在本地可以运行，上传到服务器上就不行了</p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200427105349523.png" alt="image-20200427105349523"></p>
 <ol start="4">
 <li><p>开始生成war包</p>
 <p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423001109448.png" alt="image-20200423001109448"></p>

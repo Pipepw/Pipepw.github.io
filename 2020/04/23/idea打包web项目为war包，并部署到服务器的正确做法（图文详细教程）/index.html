@@ -29,14 +29,9 @@
 <meta property="og:description" content="在网上找了很久，发现很多方法是错误的，有的连web.xml文件以及classes文件夹、lib文件夹都没生成。同时在部署过程中还出现本地调试正常，但是放到服务器上就不能访问的问题。因此有很多注意事项，写下这篇博客以作记录。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422233609802.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422234122921.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422234411508.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423000455991.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423000559378.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423000806803.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422235131022.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422235245799.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422235921961.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200427105209116.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200427103536336.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200427105349523.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423001109448.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423001247547.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423085023916.png">
@@ -45,7 +40,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423090654842.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423091034331.png">
 <meta property="article:published_time" content="2020-04-23T01:11:38.033Z">
-<meta property="article:modified_time" content="2020-04-23T01:15:12.250Z">
+<meta property="article:modified_time" content="2020-04-27T03:06:50.980Z">
 <meta property="article:author" content="Pipepw">
 <meta property="article:tag" content="博客">
 <meta property="article:tag" content="Linux">
@@ -231,10 +226,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-04-23 09:11:38 / Modified: 09:15:12" itemprop="dateCreated datePublished" datetime="2020-04-23T09:11:38+08:00">2020-04-23</time>
+              <time title="Created: 2020-04-23 09:11:38" itemprop="dateCreated datePublished" datetime="2020-04-23T09:11:38+08:00">2020-04-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-27 11:06:50" itemprop="dateModified" datetime="2020-04-27T11:06:50+08:00">2020-04-27</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -263,19 +264,10 @@
 <li>打开Projec Structure</li>
 </ol>
 <p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422233609802.png" alt="image-20200422233609802"></p>
-<ol start="2">
-<li><p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422234122921.png" alt="image-20200422234122921"></p>
-</li>
-<li><p>创建WEB-INF文件夹以及在这个文件夹下的子目录classes</p>
-</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422234411508.png" alt="image-20200422234411508"></p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423000455991.png" alt="image-20200423000455991"></p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423000559378.png" alt="image-20200423000559378"></p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423000806803.png" alt="image-20200423000806803"></p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422235131022.png" alt="image-20200422235131022"></p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422235245799.png" alt="image-20200422235245799"></p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200422235921961.png" alt="image-20200422235921961"></p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200427105209116.png" alt="image-20200427105209116"></p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200427103536336.png" alt="image-20200427103536336"></p>
+<p>在war中导入的包最后和本地的包是一样的，所以如果出现包依赖的冲突，那么就清理一下本地的包，比如我之前就是在本地添加了重复的tomcat依赖包，导致在本地可以运行，上传到服务器上就不行了</p>
+<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200427105349523.png" alt="image-20200427105349523"></p>
 <ol start="4">
 <li><p>开始生成war包</p>
 <p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200423001109448.png" alt="image-20200423001109448"></p>
