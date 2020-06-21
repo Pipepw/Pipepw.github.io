@@ -211,9 +211,24 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-05-30 12:34:11 / Modified: 12:42:06" itemprop="dateCreated datePublished" datetime="2020-05-30T12:34:11+08:00">2020-05-30</time>
+              <time title="Created: 2020-05-30 12:34:11" itemprop="dateCreated datePublished" datetime="2020-05-30T12:34:11+08:00">2020-05-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-21 11:12:33" itemprop="dateModified" datetime="2020-06-21T11:12:33+08:00">2020-06-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">技巧</span></a>
+                </span>
             </span>
 
           
@@ -229,31 +244,14 @@
       
           <p>进入到intel的目录之后，使用install.sh进行安装</p>
 <p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200530115750225.png" alt="image-20200530115750225"></p>
-<p>按照提示来选择就行，这里需要注意一下，选择使用文件来获取验证</p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200530120017185.png" alt="image-20200530120017185"></p>
-<p>license文件在如下目录中，从其中选择一个，如果不行就换一个，我用的时候，_c是能用的</p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200530120209810.png" alt="image-20200530120209810"></p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200530120402600.png" alt="image-20200530120402600"></p>
-<p>通过选择这个来自定义安装的路径，这里面有多个安装的设置，我们只修改安装的路径就行了</p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200530120456566.png" alt="image-20200530120456566"></p>
-<p>这里就是修改安装路径的设置</p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200530120531399.png" alt="image-20200530120531399"></p>
-<p>这里我安装到了asc目录下的intel目录，在这里使用tab的时候，之前的输入会保留，所以有上面的那两个留下来的路径</p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200530120647158.png" alt="image-20200530120647158"></p>
-<p>安装过程中可能回出现缺少依赖之类的问题，如果能跳过，那么直接跳过就行，如果不能跳过，就google一下，然后安装，比如遇到</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># xorg x11 server is not found的问题</span></span><br><span class="line">sudo apt-get install xorg openbox</span><br></pre></td></tr></table></figure>
-
-<p>看到这个就是安装完成了</p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200530121824836.png" alt="image-20200530121824836"></p>
-<p>最后在这个目录下找到了icc，将其配置到环境变量中就算是完成了</p>
-<p><img src="E:%5Chexo%5Csource%5C_posts%5C%E5%AE%89%E8%A3%85intel%E7%BC%96%E8%AF%91%E5%99%A8.assets%5C20200530124016.png" alt=""></p>
-<p>配置好环境变量之后，可能会出现A license for Comp-CL could not be obtained的错误</p>
-<p><img src="E:%5Chexo%5Csource%5C_posts%5C%E5%AE%89%E8%A3%85intel%E7%BC%96%E8%AF%91%E5%99%A8.assets%5C20200530124124.png" alt=""></p>
-<p>可以看到在最后一个的路径中有个 *.lic的结尾，所以将我们之前用的那个License复制到那个目录下面就行了</p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200530123332242.png" alt="image-20200530123332242"></p>
-<p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200530123346005.png" alt="image-20200530123346005"></p>
-<p>大功告成！！！</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/30/%E5%AE%89%E8%A3%85intel%E7%BC%96%E8%AF%91%E5%99%A8/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -546,7 +544,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-17 09:03:45" itemprop="dateModified" datetime="2020-05-17T09:03:45+08:00">2020-05-17</time>
+                <time title="Modified: 2020-06-21 11:11:03" itemprop="dateModified" datetime="2020-06-21T11:11:03+08:00">2020-06-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">

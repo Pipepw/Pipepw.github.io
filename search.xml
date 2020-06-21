@@ -5,6 +5,8 @@
     <url>/2020/05/30/%E5%AE%89%E8%A3%85intel%E7%BC%96%E8%AF%91%E5%99%A8/</url>
     <content><![CDATA[<p>进入到intel的目录之后，使用install.sh进行安装</p>
 <p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200530115750225.png" alt="image-20200530115750225"></p>
+<a id="more"></a>
+
 <p>按照提示来选择就行，这里需要注意一下，选择使用文件来获取验证</p>
 <p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200530120017185.png" alt="image-20200530120017185"></p>
 <p>license文件在如下目录中，从其中选择一个，如果不行就换一个，我用的时候，_c是能用的</p>
@@ -30,6 +32,13 @@
 <p><img src="https://raw.githubusercontent.com/Pipepw/FigureBed/master/blog_files/img/PicGo-Github-PicBed/image-20200530123346005.png" alt="image-20200530123346005"></p>
 <p>大功告成！！！</p>
 ]]></content>
+      <categories>
+        <category>技巧</category>
+      </categories>
+      <tags>
+        <tag>配置环境</tag>
+        <tag>博客</tag>
+      </tags>
   </entry>
   <entry>
     <title>最最基础Java后端</title>
