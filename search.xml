@@ -243,7 +243,7 @@
 
 
 <hr>
-<h1 id="06-20："><a href="#06-20：" class="headerlink" title="06/20："></a>06/20：</h1><h3 id="关键字："><a href="#关键字：" class="headerlink" title="关键字："></a>关键字：</h3><ol>
+<h1 id="06-20："><a href="#06-20：" class="headerlink" title="06/20："></a>06/20：</h1><h3 id="关键字：-RestController与-Controller的区别、-SpringBootConfiguration、-Component、yaml与properties的区别、分析代码、学习方法、-ConfigurationProperties-prefix-“xxx”-、JSP303数据校验、观察、习惯、idea的mybatis插件激活码、四个元注解、类的加载过程、路由器有线桥接、动态代理、MVC框架要做的事情、RESTful风格、不支持发行版本5、web项目出现404、web项目的目录文件、添加web-module、解决问题、分析开源项目、微服务架构、单体应用架构、SpringMVC的执行过程、Idea配置数据库提示时区不对、AOP的实现机制、类的加载与ClassLoader的理解、Java内存、去掉Idea的下划波浪线、SpringMVC的流程"><a href="#关键字：-RestController与-Controller的区别、-SpringBootConfiguration、-Component、yaml与properties的区别、分析代码、学习方法、-ConfigurationProperties-prefix-“xxx”-、JSP303数据校验、观察、习惯、idea的mybatis插件激活码、四个元注解、类的加载过程、路由器有线桥接、动态代理、MVC框架要做的事情、RESTful风格、不支持发行版本5、web项目出现404、web项目的目录文件、添加web-module、解决问题、分析开源项目、微服务架构、单体应用架构、SpringMVC的执行过程、Idea配置数据库提示时区不对、AOP的实现机制、类的加载与ClassLoader的理解、Java内存、去掉Idea的下划波浪线、SpringMVC的流程" class="headerlink" title="关键字：@RestController与@Controller的区别、@SpringBootConfiguration、@Component、yaml与properties的区别、分析代码、学习方法、@ConfigurationProperties(prefix = “xxx”)、JSP303数据校验、观察、习惯、idea的mybatis插件激活码、四个元注解、类的加载过程、路由器有线桥接、动态代理、MVC框架要做的事情、RESTful风格、不支持发行版本5、web项目出现404、web项目的目录文件、添加web module、解决问题、分析开源项目、微服务架构、单体应用架构、SpringMVC的执行过程、Idea配置数据库提示时区不对、AOP的实现机制、类的加载与ClassLoader的理解、Java内存、去掉Idea的下划波浪线、SpringMVC的流程"></a>关键字：@RestController与@Controller的区别、@SpringBootConfiguration、@Component、yaml与properties的区别、分析代码、学习方法、@ConfigurationProperties(prefix = “xxx”)、JSP303数据校验、观察、习惯、idea的mybatis插件激活码、四个元注解、类的加载过程、路由器有线桥接、动态代理、MVC框架要做的事情、RESTful风格、不支持发行版本5、web项目出现404、web项目的目录文件、添加web module、解决问题、分析开源项目、微服务架构、单体应用架构、SpringMVC的执行过程、Idea配置数据库提示时区不对、AOP的实现机制、类的加载与ClassLoader的理解、Java内存、去掉Idea的下划波浪线、SpringMVC的流程</h3><ol>
 <li><p>@RestController与@Controller的区别：<br>@RestController相当于@ResponseBody与@Controller一起使用，也就是返回的是一个对象，可以是String也可以是其他类型的对象，而@Controller返回的则是一个用于视图解析器查找的页面，使用@ReponseBody就不会走视图解析器了，这样使用之后，后端就只需要返回数据就行了前端再拿到数据进行渲染</p>
 </li>
 <li><p>@SpringBootConfiguration</p>
@@ -358,7 +358,8 @@
 </li>
 </ol>
 </li>
-<li><p>web项目出现404，可能是没有导入依赖包</p>
+<li><p>web项目出现404</p>
+<p>可能是没有导入依赖包</p>
 </li>
 <li><p>web项目的目录文件</p>
 <p>放在WEB-INF目录下的不会被直接访问，如果放在与WEB-INF同级的目录，那么就可以直接通过网址访问到</p>
@@ -861,7 +862,7 @@
 </li>
 </ol>
 <hr>
-<h1 id="04-02"><a href="#04-02" class="headerlink" title="04/02:"></a>04/02:</h1><h3 id="第85天：无"><a href="#第85天：无" class="headerlink" title="第85天：无"></a>第85天：无</h3><h3 id="关键字：-1"><a href="#关键字：-1" class="headerlink" title="关键字："></a>关键字：</h3><ol>
+<h1 id="04-02"><a href="#04-02" class="headerlink" title="04/02:"></a>04/02:</h1><h3 id="第85天：无"><a href="#第85天：无" class="headerlink" title="第85天：无"></a>第85天：无</h3><h3 id="关键字："><a href="#关键字：" class="headerlink" title="关键字："></a>关键字：</h3><ol>
 <li><p>列表：</p>
 <li>是列表中的标签，表示列表中的每一项，，<ol>是有序列表，<ul>是无序列表
 </li>
@@ -1453,7 +1454,7 @@ wx.set* 开头的API是写入数据到宿主环境的接口。</code></pre></li>
 <hr>
 <h1 id="03-13"><a href="#03-13" class="headerlink" title="03/13:"></a>03/13:</h1><h3 id="第66天：这几天还是在看Nvidia的博客，不过效率很低，尝试新的方法，希望有好的效果"><a href="#第66天：这几天还是在看Nvidia的博客，不过效率很低，尝试新的方法，希望有好的效果" class="headerlink" title="第66天：这几天还是在看Nvidia的博客，不过效率很低，尝试新的方法，希望有好的效果"></a>第66天：这几天还是在看Nvidia的博客，不过效率很低，尝试新的方法，希望有好的效果</h3><hr>
 <p>==已分类==</p>
-<h1 id="03-11："><a href="#03-11：" class="headerlink" title="03/11："></a>03/11：</h1><h3 id="第64天：今天一直在看-Nvidia官方的博客-，还是有很大的收获的，不过博客的很多内容是开发者文档中有的，不过之后可以看一下开发者文档"><a href="#第64天：今天一直在看-Nvidia官方的博客-，还是有很大的收获的，不过博客的很多内容是开发者文档中有的，不过之后可以看一下开发者文档" class="headerlink" title="第64天：今天一直在看==Nvidia官方的博客==，还是有很大的收获的，不过博客的很多内容是开发者文档中有的，不过之后可以看一下开发者文档"></a>第64天：今天一直在看==Nvidia官方的博客==，还是有很大的收获的，不过博客的很多内容是开发者文档中有的，不过之后可以看一下开发者文档</h3><h3 id="关键字：-2"><a href="#关键字：-2" class="headerlink" title="关键字："></a>关键字：</h3><ol>
+<h1 id="03-11："><a href="#03-11：" class="headerlink" title="03/11："></a>03/11：</h1><h3 id="第64天：今天一直在看-Nvidia官方的博客-，还是有很大的收获的，不过博客的很多内容是开发者文档中有的，不过之后可以看一下开发者文档"><a href="#第64天：今天一直在看-Nvidia官方的博客-，还是有很大的收获的，不过博客的很多内容是开发者文档中有的，不过之后可以看一下开发者文档" class="headerlink" title="第64天：今天一直在看==Nvidia官方的博客==，还是有很大的收获的，不过博客的很多内容是开发者文档中有的，不过之后可以看一下开发者文档"></a>第64天：今天一直在看==Nvidia官方的博客==，还是有很大的收获的，不过博客的很多内容是开发者文档中有的，不过之后可以看一下开发者文档</h3><h3 id="关键字：-1"><a href="#关键字：-1" class="headerlink" title="关键字："></a>关键字：</h3><ol>
 <li><p>使用nvprof：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvprof --<span class="built_in">print</span>-gpu-trace ./nbody</span><br><span class="line"><span class="comment"># 其实使用 nvprof ./nbody 就行了，不过信息没那么详细</span></span><br></pre></td></tr></table></figure>
 </li>
